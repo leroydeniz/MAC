@@ -1,0 +1,75 @@
+Tarea 3
+
+1. método de "resustitución - error aparente", o también conocido como método "no-honesto de estimación". 
+
+Correctly Classified Instances         214              100      %
+Incorrectly Classified Instances         0                0      %
+Kappa statistic                          1     
+Mean absolute error                      0.0077
+Root mean squared error                  0.011 
+Relative absolute error                  3.6492 %
+Root relative squared error              3.4043 %
+Total Number of Instances              214   
+
+
+2. método de "resustitución - error aparente", o también conocido como método "no-honesto de estimación". Descubre en qué opción de test lo tiene WEKA implementado
+
+
+3. método H 5 veces, haciendo finalmente un "average" de los resultados de validación de esas 5 ejecuciones: OJO, en WEKA, para que de una ejecución a la otra los casos de las particiones de train y test se escojan aleatoriamente, hay que clickar en el botón "More options" y poner siempre un número diferente ("el que más rabia te dé") en la opción "Random seed", para, a partir de él, WEKA genere una ristra aleatoria de números para generar la partición (distintas a la de la ejecución anterior). "Seed", "semilla", todo un clásico en un lenguaje de programación para generar números aleatorios
+
+Correctly Classified Instances          49               67.1233 %
+Incorrectly Classified Instances        24               32.8767 %
+Kappa statistic                          0.5436
+Mean absolute error                      0.1011
+Root mean squared error                  0.2996
+Relative absolute error                 47.638  %
+Root relative squared error             92.8185 %
+Total Number of Instances               73   
+
+
+4. método de estimación basado en 10 rodajas: 10-fold cross-validation
+
+Correctly Classified Instances         151               70.5607 %
+Incorrectly Classified Instances        63               29.4393 %
+Kappa statistic                          0.6005
+Mean absolute error                      0.0897
+Root mean squared error                  0.2852
+Relative absolute error                 42.3747 %
+Root relative squared error             87.8627 %
+Total Number of Instances              214    
+
+
+5. método de estimación basado en 5 rodajas: 5-fold cross-validation
+
+Correctly Classified Instances         149               69.6262 %
+Incorrectly Classified Instances        65               30.3738 %
+Kappa statistic                          0.5858
+Mean absolute error                      0.093 
+Root mean squared error                  0.2891
+Relative absolute error                 43.8782 %
+Root relative squared error             89.0749 %
+Total Number of Instances              214     
+
+6. leave-one-out: ¿qué valor debes poner en "folds"? 
+
+Correctly Classified Instances         150               70.0935 %
+Incorrectly Classified Instances        64               29.9065 %
+Kappa statistic                          0.5948
+Mean absolute error                      0.0905
+Root mean squared error                  0.2879
+Relative absolute error                 42.5809 %
+Root relative squared error             88.3263 %
+Total Number of Instances              214     
+
+
+
+Respuestas
+
+1. ¿devuelven todos el mismo porcentaje de error estimado? ¿por qué?
+No, el error es distinto en todos los casos porque se utilizan algoritmos distintos en cada una de las clasificaciones.
+
+2. ¿cuál de los métodos anteriores devuelve el mejor porcentaje de error estimado? ¿era esperable? ¿por qué?
+El porcentaje de error más bajo lo devuelve el método de resustitución. Era esperable porque toma sus mismos casos para evaluarse a sí mismo.El porcentaje de error será necesariamente bajo.
+
+3. ¿cuál te parece la estimación más fiable de las 6 anteriores? Ten en cuenta que el error real únicamente se pude conocer teniendo infinitos casos.
+Dejando de lado el método de resustitución, el que más instancias correctas clasificadas presenta es el método 10-fold cross validation

@@ -1,0 +1,255 @@
+# -*- coding: utf-8 -*-
+"""
+Pregunta 1
+"""
+
+va = abs(-6)
+
+va
+Out[22]: 6
+
+
+
+"""
+Pregunta 2
+"""
+
+a = 10
+
+b = 20
+
+suma = a + b
+
+suma
+Out[51]: 30
+
+
+
+"""
+Pregunta 3
+"""
+
+gC = 40
+
+gF = 9/5 * gC + 32
+
+gF
+Out[19]: 104.0
+
+
+
+
+"""
+Pregunta 4
+"""
+
+import math
+
+def area(radio):
+    return 4 *math.pi *(radio**2)
+
+
+print(area(1))
+12.566370614359172
+
+
+
+"""
+Pregunta 5
+"""
+
+def p5(a,b,c):
+    assert a==b
+    assert b<c
+    assert c>a
+
+print(p5(22, 23, 21))
+
+
+
+"""
+Pregunta 6
+"""
+import math
+
+def p6(x1, y1,x2, y2):
+    return math.sqrt((x2-x1)**2 + (y2-y1)**2)
+    
+
+print(p6(1,1,2,2))
+1.4142135623730951
+
+
+
+"""
+Pregunta 7
+"""
+import math
+
+def p7(x,y):
+    return 5*x**3+math.sqrt(x**2+y**2)+math.e**(math.log(x))
+    
+
+print(p7(1,1))
+
+
+
+"""
+Pregunta 8
+"""
+
+datos=[1,2,3,4,5]
+
+print(datos)
+[1, 2, 3, 4, 5]
+
+print(type(datos))
+<class 'list'>
+
+
+
+"""
+Pregunta 9
+"""
+
+def sust(datos):
+    for i in range(0,len(datos)):
+        if(datos[i]==4):
+            datos[i]=10
+
+datos=[4,2,3,4,4,6,3,4]
+
+print(datos)
+sust(datos)
+print(datos)
+
+[4, 2, 3, 4, 4, 6, 3, 4]
+[10, 2, 3, 10, 10, 6, 3, 10]
+
+
+
+"""
+Pregunta 10
+"""
+
+def collatz(num):
+    count=0
+    while(num!=1):
+        if(num%2==0):
+            num=num/2
+        else:
+            num=3*num+1
+        count = count+1
+    return count
+
+'''test set'''
+datos=[6,11,27,32,33]
+pasos=[0,0,0,0,0]
+for i in range(0,len(datos)):
+    pasos[i]=collatz(datos[i])
+    
+print(pasos)
+
+
+
+"""
+Pregunta 11
+"""
+
+import random
+
+def init(matriz):
+    for i in range(0, len(matriz)):
+        for j in range(0, len(matriz[i])):
+            matriz[i][j]=random.randint(-5,5)
+	return matriz
+
+#inicializo la matriz de 6x4
+matriz=[[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0]]
+
+#imprimo la matriz original y luego la matriz inicializada
+print(matriz)
+print(init(matriz))
+
+
+
+"""
+Pregunta 12
+"""
+
+def p12(matriz, num):
+    count=0
+    for i in range(0, len(matriz)):
+        for j in range(0, len(matriz[i])):
+            if (matriz[i][j]==num):
+                count = count +1;
+    return count
+           
+#defino una matriz cualquiera
+matriz=[[0,0,0],[0,0,0]]
+
+#utilizo la función de la pregunta 11 para inicializarla
+init(matriz)
+print(matriz)
+
+#aplico la función p12 para ver la cantidad de apariciones
+print(p12(matriz,0))
+
+[[-2, -3, -1], [2, 3, 0]]
+1
+[[4, 5, -1], [-3, 5, -1]]
+0
+
+
+
+"""
+Pregunta 13
+"""
+
+print("\n********** EJERCICIO 13 **********")
+
+def p13(matriz):
+    count=0
+    for i in range(0, len(matriz)):
+        for j in range(0, len(matriz[i])):
+            if (matriz[i][j]<=7 and matriz[i][j]>=4):
+                count = count +1;
+    if count !=0:
+        return True
+    else:
+        return False
+           
+#defino una matriz cualquiera
+matriz=[[0,0,0],[0,0,0],[0,0,0],[0,0,0]]
+
+#utilizo la función de la pregunta 11 para inicializarla
+init(matriz)
+print(matriz)
+
+#aplico la función p12 para ver la cantidad de apariciones
+print(p13(matriz))
+0
+
+
+
+print("\n********** EJERCICIO 14 **********")
+
+            
+def p14(listaInt, listaBool):
+    countPosTrue=0
+    countNegFalse=0
+    for i in range(0, len(listaInt)):
+        if (listaInt[i]>=0 and listaBool[i]==True):
+            countPosTrue = countPosTrue +1;
+        if (listaInt[i]<0 and listaBool[i]==False):
+            countNegFalse = countNegFalse +1;
+    return countPosTrue,countNegFalse
+           
+#inicializo ambas listas
+a=[-2,3,4,-7,10,-234]
+b=[True, True, True, True, False, False]
+
+print(a,b)
+
+#aplico la función p14 para ver la cantidad de coincidencias
+print(p14(a,b))

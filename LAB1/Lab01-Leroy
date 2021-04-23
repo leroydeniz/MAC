@@ -1,0 +1,293 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""
+Created on Tue Sep 15 19:57:04 2020
+
+@author: ldeniz
+"""
+
+
+#import de las librerías
+import math
+import random
+
+
+
+print("\n\n********** EJERCICIO 01 **********")
+
+#utilizo la función valor absoluto y devuelvo el restulado
+def p1(va):
+    va = abs(va)
+    return va
+
+#ejecuto y muestro el resultado de la función
+print(p1(-6))
+
+"Out[1]: 6"
+
+
+
+
+print("\n\n********** EJERCICIO 02 **********")
+
+#función que suma ambos números
+def p2(num1, num2):
+    return num1+num2
+    
+#llamo a la función p2 y le paso ambos enteros
+print(p2(10,20))
+
+"Out[2]: 30"
+
+
+
+
+print("\n\n********** EJERCICIO 03 **********")
+
+#función que convierte de celsius a fahrenheit
+def p3(num):
+    return 9/5 * num + 32
+    
+print(p3(40))
+"Out[3]: 104.0"
+
+
+
+
+print("\n\n********** EJERCICIO 04 **********")
+
+#calcula el área de una esfera
+def p4(radio):
+    return 4 *math.pi *(radio**2)
+
+print(p4(1))
+
+"Out[4]: 12.566370614359172"
+
+
+
+
+print("\n\n********** EJERCICIO 05 **********")
+
+#verifica las relaciones entre a,b y c
+def p5(a,b,c):
+    assert a==b
+    assert b<c
+    assert c>a
+    print("Se cumple que a==a / b<c / c>a")
+
+p5(22,22,23)
+
+"Out[5]: Se cumple que a==a / b<c / c>a"
+
+
+
+
+print("\n\n********** EJERCICIO 06 **********")
+
+def p6(x1, y1,x2, y2):
+    return math.sqrt((x2-x1)**2 + (y2-y1)**2)
+    
+
+print(p6(1,1,2,2))
+
+"Out[6]: 1.4142135623730951"
+
+
+
+
+print("\n\n********** EJERCICIO 07 **********")
+
+def p7(x,y):
+    return 5*x**3+math.sqrt(x**2+y**2)+math.e**(math.log(x))
+    
+
+print(p7(1,1))
+
+"Out[7]: 7.414213562373095"
+
+
+
+
+print("\n\n********** EJERCICIO 08 **********")
+
+#inicializo una lista
+datos=[1,2,3,4,5]
+
+#imprimo la lista y el tipo
+print(datos)
+print(type(datos))
+
+"Out[8]: [1, 2, 3, 4, 5] <class 'list'>"
+
+
+
+
+print("\n\n********** EJERCICIO 09 **********")
+
+#la función p9 cambia los 4 por 10
+def p9(datos):
+    for i in range(0,len(datos)):
+        if(datos[i]==4):
+            datos[i]=10
+
+#inicializo la lista
+datos=[4,2,3,4,4,6,3,4]
+
+#imrpimo la lista original
+print(datos)
+
+#aplico la función p9 y vuelvo a mostrar la lista
+p9(datos)
+print(datos)
+
+"Out[9]: [4, 2, 3, 4, 4, 6, 3, 4] [10, 2, 3, 10, 10, 6, 3, 10]"
+
+
+
+
+print("\n\n********** EJERCICIO 10 **********")
+
+#función para obtener el número de pasos de la conjetura de colltz
+def collatz(num):
+    count=0
+    while(num!=1):
+        #si es par
+        if(num%2==0):
+            num=num/2
+        else:
+            #si es impar
+            num=3*num+1
+        count = count+1
+    return count
+
+#datos de prueba
+datos=[6,11,27,32,33]
+
+#inicializo la lista que tendrá los pasos para cada elemento
+pasos=[0,0,0,0,0]
+
+#apalico la función para cada elemento de la lista
+for i in range(0,len(datos)):
+    pasos[i]=collatz(datos[i])
+    
+print(pasos)
+    
+"Out[10]: [8, 14, 111, 5, 26]"
+
+
+
+
+print("\n\n********** EJERCICIO 11 **********")
+
+#función para inicializar una matriz de 6x3 con números ente -5 y 5
+def init(matriz):
+    for i in range(0, len(matriz)):
+        for j in range(0, len(matriz[i])):
+            matriz[i][j]=random.randint(-5,5)
+    return matriz
+
+#inicializo la matriz de 6x3
+matriz=[[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0]]
+
+#imprimo la matriz original y luego la matriz inicializada
+print(matriz)
+print(init(matriz)) 
+
+"Out[11]: [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]"
+"         [[4, 2, -5], [0, 1, -5], [5, 0, -3], [1, 0, 2], [-1, -4, 1], [4, 4, 4]]"
+
+
+
+
+print("\n\n********** EJERCICIO 12 **********")
+
+#fdevuelve la cantidad de apariciones del número en la matriz
+def p12(matriz, num):
+    count=0
+    for i in range(0, len(matriz)):
+        for j in range(0, len(matriz[i])):
+            if (matriz[i][j]==num):
+                count = count +1;
+    return count
+           
+#defino una matriz cualquiera
+matriz=[[0,0,0],[0,0,0]]
+
+#utilizo la función de la pregunta 11 para inicializarla
+init(matriz)
+print(matriz)
+
+#aplico la función p12 para ver la cantidad de apariciones del 0
+print(p12(matriz,0))
+    
+"Out[10]: [[1, -5, -3], [4, -2, 2]]"
+"         0                        "
+"         [[-5, 2, -2], [-3, -4, 0]]"
+"         1"
+
+
+
+
+print("\n\n********** EJERCICIO 13 **********")
+
+#función para inicializar una matriz de 6x3 con números ente -5 y 5
+def p13(matriz):
+    count=0
+    for i in range(0, len(matriz)):
+        for j in range(0, len(matriz[i])):
+            if (matriz[i][j]<=7 and matriz[i][j]>=4):
+                count = count +1;
+    if count !=0:
+        return True
+    else:
+        return False
+           
+#defino una matriz cualquiera
+matriz=[[0,0,0],[0,0,0],[0,0,0],[0,0,0]]
+
+#utilizo la función de la pregunta 11 para inicializarla
+init(matriz)
+print(matriz)
+
+#aplico la función p12 para ver la cantidad de apariciones
+print(p13(matriz))
+
+"Out[10]: 0"
+
+
+
+
+print("\n\n********** EJERCICIO 14 **********")
+
+#función para verificar las correspondencias +/True y -/False por posición
+def p14(listaInt, listaBool):
+    countPosTrue=0
+    countNegFalse=0
+    for i in range(0, len(listaInt)):
+        if (listaInt[i]>=0 and listaBool[i]==True):
+            countPosTrue = countPosTrue +1;
+        if (listaInt[i]<0 and listaBool[i]==False):
+            countNegFalse = countNegFalse +1;
+    return countPosTrue,countNegFalse
+           
+#inicializo ambas listas
+a=[-2,3,4,-7,10,-234]
+b=[True, True, True, True, False, False]
+
+print(a,b)
+
+#aplico la función p14 para ver la cantidad de coincidencias
+print(p14(a,b))
+
+"Out[10]: [-2, 3, 4, -7, 10, -234]"
+"         [True, True, True, True, False, False]"
+"         (2, 1)"
+
+
+
+
+
+
+
